@@ -39,3 +39,28 @@ export const SectionMe = styled.section`
         margin-left: 20px;
     }
 `
+
+export const DivSt = styled.div`
+    display: flex;
+    justify-content: center;
+   div{
+    background-color: white;
+    width: 90vw;
+    height: 500px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+   }
+`
+
+export const DivContainerProjects = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+   justify-content: center;
+`
+export const DivTest = styled.div`
+    background-color: white;
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+`
