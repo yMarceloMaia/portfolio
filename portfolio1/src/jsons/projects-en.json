@@ -1,0 +1,26 @@
+{
+    "projects": [
+      {
+        "title": "Corporate Website",
+        "description": "Development of a corporate website for a technology company. Included responsive design, API integration, and performance optimization.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Node.js"],
+        "image": "corporate.jpg",
+        "link": "https://www.example-corporate.com"
+      },
+      {
+        "title": "Online Store",
+        "description": "Creation of an e-commerce platform for a clothing store. Implemented shopping cart, payment integration, and product management.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Firebase"],
+        "image": "online-store.jpg",
+        "link": "https://www.example-onlinestore.com"
+      },
+      {
+        "title": "Personal Blog",
+        "description": "Development of a personal blog with CRUD functionalities. Included an admin panel to manage posts and comments.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Express.js", "MongoDB"],
+        "image": "personal-blog.jpg",
+        "link": "https://www.my-personalblog.com"
+      }
+    ]
+  }
+  
