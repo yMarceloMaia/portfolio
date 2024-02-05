@@ -1,0 +1,918 @@
+#title {
+  position: relative;
+  font-size: 50px;
+  font-weight: bold;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  z-index: 1;
+}
+
+#title:before,
+#title:after {
+  display: block;
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.8;
+}
+
+#title:before {
+  animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+  color: #4D06FF;
+  z-index: -1;
+}
+
+#title:after {
+  animation: glitch-it 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
+  color: #DCFAFF;
+  z-index: -2;
+}
+
+@keyframes glitch-it {
+  0% {
+     transform: translate(0);
+  }
+  20% {
+     transform: translate(-2px, 2px);
+  }
+  40% {
+     transform: translate(-2px, -2px);
+  }
+  60% {
+     transform: translate(2px, 2px);
+  }
+  80% {
+     transform: translate(2px, -2px);
+  }
+  to {
+     transform: translate(0);
+  }
+}
+
+
+
+
+
+========================================================================================================
+
+
+
+
+
+
+
+
+#title {
+  position: relative;
+  font-size: 50px;
+  font-weight: bold;
+  color: #FFFFFF;
+  letter-spacing: 3px;
+  z-index: 1;
+}
+
+#title:before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 100%;
+  color: 50px;
+  background-color: #000000;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-before 3s infinite linear alternate-reverse;
+}
+
+#title:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 2px;
+  width: 100%;
+  color: 50px;
+  background-color: #000000;
+  overflow: hidden;
+  clip: rect(0, 900px, 0, 0);
+  animation: noise-after 2s infinite linear alternate-reverse;
+}
+
+@keyframes noise-before {
+  0% {
+     clip: rect(61px, 9999px, 52px, 0);
+  }
+  5% {
+     clip: rect(33px, 9999px, 144px, 0);
+  }
+  10% {
+     clip: rect(121px, 9999px, 115px, 0);
+  }
+  15% {
+     clip: rect(144px, 9999px, 162px, 0);
+  }
+  20% {
+     clip: rect(62px, 9999px, 180px, 0);
+  }
+  25% {
+     clip: rect(34px, 9999px, 42px, 0);
+  }
+  30% {
+     clip: rect(147px, 9999px, 179px, 0);
+  }
+  35% {
+     clip: rect(99px, 9999px, 63px, 0);
+  }
+  40% {
+     clip: rect(188px, 9999px, 122px, 0);
+  }
+  45% {
+     clip: rect(154px, 9999px, 14px, 0);
+  }
+  50% {
+     clip: rect(63px, 9999px, 37px, 0);
+  }
+  55% {
+     clip: rect(161px, 9999px, 147px, 0);
+  }
+  60% {
+     clip: rect(109px, 9999px, 175px, 0);
+  }
+  65% {
+     clip: rect(157px, 9999px, 88px, 0);
+  }
+  70% {
+     clip: rect(173px, 9999px, 131px, 0);
+  }
+  75% {
+     clip: rect(62px, 9999px, 70px, 0);
+  }
+  80% {
+     clip: rect(24px, 9999px, 153px, 0);
+  }
+  85% {
+     clip: rect(138px, 9999px, 40px, 0);
+  }
+  90% {
+     clip: rect(79px, 9999px, 136px, 0);
+  }
+  95% {
+     clip: rect(25px, 9999px, 34px, 0);
+  }
+  100% {
+     clip: rect(173px, 9999px, 166px, 0);
+  }
+}
+
+@keyframes noise-after {
+  0% {
+     clip: rect(26px, 9999px, 33px, 0);
+  }
+  5% {
+     clip: rect(140px, 9999px, 198px, 0);
+  }
+  10% {
+     clip: rect(184px, 9999px, 89px, 0);
+  }
+  15% {
+     clip: rect(121px, 9999px, 6px, 0);
+  }
+  20% {
+     clip: rect(181px, 9999px, 99px, 0);
+  }
+  25% {
+     clip: rect(154px, 9999px, 133px, 0);
+  }
+  30% {
+     clip: rect(134px, 9999px, 169px, 0);
+  }
+  35% {
+     clip: rect(26px, 9999px, 187px, 0);
+  }
+  40% {
+     clip: rect(147px, 9999px, 137px, 0);
+  }
+  45% {
+     clip: rect(31px, 9999px, 52px, 0);
+  }
+  50% {
+     clip: rect(191px, 9999px, 109px, 0);
+  }
+  55% {
+     clip: rect(74px, 9999px, 54px, 0);
+  }
+  60% {
+     clip: rect(145px, 9999px, 75px, 0);
+  }
+  65% {
+     clip: rect(153px, 9999px, 198px, 0);
+  }
+  70% {
+     clip: rect(99px, 9999px, 136px, 0);
+  }
+  75% {
+     clip: rect(118px, 9999px, 192px, 0);
+  }
+  80% {
+     clip: rect(1px, 9999px, 83px, 0);
+  }
+  85% {
+     clip: rect(145px, 9999px, 98px, 0);
+  }
+  90% {
+     clip: rect(121px, 9999px, 154px, 0);
+  }
+  95% {
+     clip: rect(156px, 9999px, 44px, 0);
+  }
+  100% {
+     clip: rect(67px, 9999px, 122px, 0);
+  }
+}
+
+
+
+========================================================================================================
+
+
+
+
+#layout {
+ 
+
+  background: #000000;
+  --gap: 5em;
+  --line: 1px;
+  --color: rgba(255, 255, 255, 0.2);
+
+  background-image: linear-gradient(
+      -90deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    ),
+    linear-gradient(
+      0deg,
+      transparent calc(var(--gap) - var(--line)),
+      var(--color) calc(var(--gap) - var(--line) + 1px),
+      var(--color) var(--gap)
+    );
+  background-size: var(--gap) var(--gap);
+}
+
+
+
+
+========================================================================================================
+
+
+<a class="fancy" href="#">
+  <span class="top-key"></span>
+  <span class="text">Buy Tickets</span>
+  <span class="bottom-key-1"></span>
+  <span class="bottom-key-2"></span>
+</a>
+
+
+.fancy {
+ background-color: transparent;
+ border: 2px solid #000;
+ border-radius: 0;
+ box-sizing: border-box;
+ color: #fff;
+ cursor: pointer;
+ display: inline-block;
+ float: right;
+ font-weight: 700;
+ letter-spacing: 0.05em;
+ margin: 0;
+ outline: none;
+ overflow: visible;
+ padding: 1.25em 2em;
+ position: relative;
+ text-align: center;
+ text-decoration: none;
+ text-transform: none;
+ transition: all 0.3s ease-in-out;
+ user-select: none;
+ font-size: 13px;
+}
+
+.fancy::before {
+ content: " ";
+ width: 1.5625rem;
+ height: 2px;
+ background: black;
+ top: 50%;
+ left: 1.5em;
+ position: absolute;
+ transform: translateY(-50%);
+ transform-origin: center;
+ transition: background 0.3s linear, width 0.3s linear;
+}
+
+.fancy .text {
+ font-size: 1.125em;
+ line-height: 1.33333em;
+ padding-left: 2em;
+ display: block;
+ text-align: left;
+ transition: all 0.3s ease-in-out;
+ text-transform: uppercase;
+ text-decoration: none;
+ color: black;
+}
+
+.fancy .top-key {
+ height: 2px;
+ width: 1.5625rem;
+ top: -2px;
+ left: 0.625rem;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, left 0.3s ease-out;
+}
+
+.fancy .bottom-key-1 {
+ height: 2px;
+ width: 1.5625rem;
+ right: 1.875rem;
+ bottom: -2px;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy .bottom-key-2 {
+ height: 2px;
+ width: 0.625rem;
+ right: 0.625rem;
+ bottom: -2px;
+ position: absolute;
+ background: #e8e8e8;
+ transition: width 0.5s ease-out, right 0.3s ease-out;
+}
+
+.fancy:hover {
+ color: white;
+ background: black;
+}
+
+.fancy:hover::before {
+ width: 0.9375rem;
+ background: white;
+}
+
+.fancy:hover .text {
+ color: white;
+ padding-left: 1.5em;
+}
+
+.fancy:hover .top-key {
+ left: -2px;
+ width: 0px;
+}
+
+.fancy:hover .bottom-key-1,
+ .fancy:hover .bottom-key-2 {
+ right: 0;
+ width: 0;
+}
+
+
+
+
+
+
+========================================================================================================
+
+
+
+
+
+.blur-out-expand-fwd {
+	-webkit-animation: blur-out-expand-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+	        animation: blur-out-expand-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2024-1-25 12:13:34
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation blur-out-expand-fwd
+ * ----------------------------------------
+ */
+ @-webkit-keyframes blur-out-expand-fwd {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    letter-spacing: 1em;
+    -webkit-transform: translateZ(300px);
+            transform: translateZ(300px);
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+@keyframes blur-out-expand-fwd {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-filter: blur(0.01);
+            filter: blur(0.01);
+  }
+  100% {
+    letter-spacing: 1em;
+    -webkit-transform: translateZ(300px);
+            transform: translateZ(300px);
+    -webkit-filter: blur(12px) opacity(0%);
+            filter: blur(12px) opacity(0%);
+  }
+}
+
+
+
+
+
+
+
+========================================================================================================
+
+
+
+
+
+
+
+========================================================================================================
+
+
+
+
+/* #title {
+	-webkit-animation: text-flicker-in-glow 4s linear forwards;
+	        animation: text-flicker-in-glow 4s linear forwards;
+} */
+/* ----------------------------------------------
+ * Generated by Animista on 2024-1-25 10:58:34
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation text-flicker-in-glow
+ * ----------------------------------------
+ */
+ @-webkit-keyframes text-flicker-in-glow {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  10.1% {
+    opacity: 1;
+    text-shadow: none;
+  }
+  10.2% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  20% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  20.1% {
+    opacity: 1;
+    /* text-shadow: 0 0 10px rgba(255, 255, 255, 0.25); */
+  }
+  20.6% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  30% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  30.1% {
+    opacity: 1;
+    /* text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25); */
+  }
+  30.5% {
+    opacity: 1;
+    /* text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25); */
+  }
+  30.6% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  45% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  45.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  55% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  55.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  57% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  57.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35);
+  }
+  60% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35);
+  }
+  60.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  65% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  65.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  75% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  75.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  77% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  77.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  85% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  85.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  86% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  86.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+}
+@keyframes text-flicker-in-glow {
+  0% {
+    opacity: 0;
+  }
+  10% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  10.1% {
+    opacity: 1;
+    text-shadow: none;
+  }
+  10.2% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  20% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  20.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.25);
+  }
+  20.6% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  30% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  30.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  30.5% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  30.6% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  45% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  45.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  50% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  55% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
+  }
+  55.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  57% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  57.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35);
+  }
+  60% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35);
+  }
+  60.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  65% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  65.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  75% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.35), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  75.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  77% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  77.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  85% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.55), 0 0 10px rgba(255, 255, 255, 0.4), 0 0 10px rgba(255, 255, 255, 0.2), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  85.1% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  86% {
+    opacity: 0;
+    text-shadow: none;
+  }
+  86.1% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 2px rgba(255, 255, 255, 0.6), 0 0 10px rgba(255, 255, 255, 0.45), 0 0 10px rgba(255, 255, 255, 0.25), 0 0 10px rgba(255, 255, 255, 0.1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+========================================================================================================
+
+
+
+
+
+layout
+
+
+
+import { ReactNode } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion"
+
+type LayoutProps = {
+    children: ReactNode;
+};
+
+const Layout = ({ children }: LayoutProps) => {
+    const navigate = useNavigate()
+
+    const { pathname } = useLocation()
+
+    return (
+        <main className="h-screen w-screen max-w-[1800px] flex justify-center items-center" id="layout">
+
+            <section className='layout-main  bg-[#000000] h-[88%] w-[88%] border relative border-gray-600'>
+
+               <section>
+                
+                </section> 
+                <section className="absolute flex flex-col justify-center items-start mt-5 ml-10" id="section-title">
+                    <h1 className="text-5xl font-nixie z-10"
+                        id="title"
+                        data-text="I'm Marcelo Maia">I'm Marcelo Maia</h1>
+                    <h1 className="text-3xl font-nixie z-10 mt-5"
+                        id="title"
+                        data-text="Web Developer">Web Developer</h1>
+                </section>
+
+                <div className="absolute top-2 right-5 opacity-90 z-20">
+                    <div className="container">
+                        <div className="radio-wrapper">
+                            <input className="input" name="btn" id="value-1" checked={pathname == "/home"} type="radio" onClick={() => navigate("/home")} />
+                            <div className="btn">
+                                <span >_</span>Home
+                                <span className="btn__glitch" >Home_</span>
+                            </div>
+                        </div>
+                        <div className="radio-wrapper">
+                            <input className="input" name="btn" id="value-2" checked={pathname == "/about"} type="radio" onClick={() => navigate("/about")} />
+                            <div className="btn">
+                                _About<span ></span>
+                                <span className="btn__glitch" >About_</span>
+                            </div>
+                        </div>
+                        <div className="radio-wrapper">
+                            <input className="input" name="btn" id="value-3" checked={pathname == "/contact"} type="radio" onClick={() => navigate("/contact")} />
+                            <div className="btn">
+                                _Contact<span ></span>
+                                <span className="btn__glitch" >Contact_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="absolute flex flex-col top-0 right-[-32px] h-[100%] justify-center gap-2 opacity-70">
+
+
+
+                    {/* {pathname == "/home" ?
+                        <button
+                            onClick={() => navigate("/home")}
+                            className="flex flex-col bg-white border border-gray-600  text-black font-bold w-8 items-center rounded-r-md ">
+                            <span>H</span>
+                            <span>O</span>
+                            <span>M</span>
+                            <span>E</span>
+                        </button> :
+                        <button
+                            onClick={() => navigate("/home")}
+                            className="flex flex-col bg-black border border-gray-600 w-8 items-center rounded-r-md ">
+                            <span>H</span>
+                            <span>O</span>
+                            <span>M</span>
+                            <span>E</span>
+                        </button>
+                    }
+
+                    {pathname == "/projects" ?
+                        <button
+                            onClick={() => navigate("/projects")}
+                            className="flex flex-col border bg-white text-black font-bold w-8 items-center rounded-r-md ">
+                            <span>P</span>
+                            <span>R</span>
+                            <span>O</span>
+                            <span>J</span>
+                            <span>E</span>
+                            <span>C</span>
+                            <span>T</span>
+                            <span>S</span>
+                        </button> :
+                        <button
+                            onClick={() => navigate("/projects")}
+                            className="flex flex-col bg-black border w-8 items-center rounded-r-md ">
+                            <span>P</span>
+                            <span>R</span>
+                            <span>O</span>
+                            <span>J</span>
+                            <span>E</span>
+                            <span>C</span>
+                            <span>T</span>
+                            <span>S</span>
+                        </button>
+                    }
+
+                    {pathname == "/about" ?
+                        <button
+                            onClick={() => navigate("/about")}
+                            className="flex flex-col border bg-white border-gray-600 text-black font-bold w-8 items-center rounded-r-md ">
+                            <span>A</span>
+                            <span>B</span>
+                            <span>O</span>
+                            <span>U</span>
+                            <span>T</span>
+                        </button> :
+                        <button
+                            onClick={() => navigate("/about")}
+                            className="flex flex-col bg-black border border-gray-600 w-8 items-center rounded-r-md ">
+                            <span>A</span>
+                            <span>B</span>
+                            <span>O</span>
+                            <span>U</span>
+                            <span>T</span>
+                        </button>
+                    }
+
+                    {pathname == "/contact" ?
+                        <button
+                            onClick={() => navigate("/contact")}
+                            className="flex flex-col border bg-white border-gray-600 text-black font-bold w-8 items-center rounded-r-md ">
+                            <span>C</span>
+                            <span>O</span>
+                            <span>N</span>
+                            <span>T</span>
+                            <span>A</span>
+                            <span>C</span>
+                            <span>T</span>
+                        </button> :
+                        <button
+                            onClick={() => navigate("/contact")}
+                            className="flex flex-col bg-black border border-gray-600 w-8 items-center rounded-r-md ">
+                            <span>C</span>
+                            <span>O</span>
+                            <span>N</span>
+                            <span>T</span>
+                            <span>A</span>
+                            <span>C</span>
+                            <span>T</span>
+                        </button>
+                    } */}
+                </div>
+                {/* <button
+                    onClick={() => navigate("/")}
+                    className="absolute right-1 top-1 cursor-pointer group block px-5 py-2 rounded-md bg-black text-white text-2xl font-bold shadow-2xl hover:scale-105 transition active:scale-90">
+                    <span className="group-hover:[text-shadow:1px_1px_4px_var(--tw-shadow-color)] shadow-white">𝕏</span>
+                </button> */}
+
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="w-full h-full overflow-auto">{children}</motion.div>
+
+
+
+            </section>
+        </main>
+    )
+}
+
+export default Layout;

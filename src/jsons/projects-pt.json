@@ -1,0 +1,26 @@
+{
+    "projects": [
+      {
+        "title": "Website Corporativo",
+        "description": "Desenvolvimento de um website corporativo para uma empresa de tecnologia. Incluiu design responsivo, integração de API e otimização de desempenho.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Node.js"],
+        "image": "corporativo.jpg",
+        "link": "https://www.exemplo-corporativo.com"
+      },
+      {
+        "title": "Loja Online",
+        "description": "Criação de uma plataforma de comércio eletrônico para uma loja de roupas. Implementação de carrinho de compras, integração de pagamento e administração de produtos.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Firebase"],
+        "image": "loja-online.jpg",
+        "link": "https://www.exemplo-lojaonline.com"
+      },
+      {
+        "title": "Blog Pessoal",
+        "description": "Desenvolvimento de um blog pessoal com funcionalidades de CRUD. Incluiu um painel de administração para gerenciar postagens e comentários.",
+        "technologies": ["HTML5", "CSS3", "JavaScript", "Express.js", "MongoDB"],
+        "image": "blog-pessoal.jpg",
+        "link": "https://www.meu-blogpessoal.com"
+      }
+    ]
+  }
+  

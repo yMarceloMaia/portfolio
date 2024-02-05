@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* background-color: #000000; */
+  box-sizing: border-box;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  background-color: #0D0D0D;
+
+  /* background-color: white;
+  color: black; */
+}
+
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
