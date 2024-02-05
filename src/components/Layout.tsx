@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
-import videoBg from "/video1.mp4"
 
 type LayoutProps = {
     children: ReactNode;
@@ -54,9 +53,6 @@ const Layout = ({ children }: LayoutProps) => {
                     </div>
                 </section>
 
-
-
-
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
@@ -65,11 +61,6 @@ const Layout = ({ children }: LayoutProps) => {
                 >
                     {children}
                 </motion.div>
-
-
-                {/* <video className='videoTag z-0 w-full h-full object-cover absolute opacity-30' autoPlay loop muted>
-                    <source src={videoBg} type='video/mp4' />
-                </video> */}
             </section>
         </main>
     )

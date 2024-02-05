@@ -91,7 +91,6 @@ const About = () => {
                         </div>
                     </section>
                 </div>
-
             </main>
         </Layout>
     )

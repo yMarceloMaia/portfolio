@@ -3,8 +3,6 @@ import Layout from "../components/Layout"
 import projectsData from "../jsons/projects-en.json"
 
 const Projects = () => {
-    console.log(projectsData)
-
     const { projects } = projectsData
     return (
         <Layout>
