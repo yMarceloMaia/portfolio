@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import Card from "../components/Card";
+import Card, { Project } from "../components/Card";
 import Layout from "../components/Layout";
 import { useLanguage } from "../contexts/LanguageContext";
 
 const Projects = () => {
   const { language } = useLanguage();
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<Project[]>([]);
 
   useEffect(() => {
     const loadProjects = async () => {

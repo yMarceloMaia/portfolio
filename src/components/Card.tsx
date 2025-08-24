@@ -1,14 +1,16 @@
 import { useTheme } from "../contexts/ThemeContext";
 
+export type Project = {
+  title: string;
+  description: string;
+  technologies: string[];
+  image: string;
+  link: string;
+  repository: string;
+};
+
 type PropsProjects = {
-  project: {
-    title: string;
-    description: string;
-    technologies: string[];
-    image: string;
-    link: string;
-    repository: string;
-  };
+  project: Project;
 };
 
 const Card = ({ project }: PropsProjects) => {

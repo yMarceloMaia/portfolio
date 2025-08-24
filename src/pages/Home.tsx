@@ -1,20 +1,20 @@
-import { useEffect, useState } from "react";
-import "./styles.css";
-import Layout from "../components/Layout";
+// import { useEffect, useState } from "react";
 import { useLanguage } from "../contexts/LanguageContext";
+import Layout from "../components/Layout";
+import "./styles.css";
 
 const Home = () => {
   const { language } = useLanguage();
-  const [content, setContent] = useState({ title: "", subtitle: "" });
+  // const [content, setContent] = useState({ title: "", subtitle: "" });
 
-  useEffect(() => {
-    const loadContent = async () => {
-      const contentData = await import(`../jsons/home-${language}.json`);
-      setContent(contentData.default);
-    };
+  // useEffect(() => {
+  //   const loadContent = async () => {
+  //     const contentData = await import(`../jsons/home-${language}.json`);
+  //     setContent(contentData.default);
+  //   };
 
-    loadContent();
-  }, [language]);
+  //   loadContent();
+  // }, [language]);
 
   return (
     <Layout>
@@ -35,4 +35,3 @@ const Home = () => {
 };
 
 export default Home;
-
