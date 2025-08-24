@@ -1,99 +1,129 @@
+import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
-import javascriptIcon from "/javascript.png"
-import typescriptIcon from "/typescript.png"
-import reactIcon from "/react.png"
-import nodejsIcon from "/nodejs.png"
-import cssIcon from "/css.png"
-import tailwindcssIcon from "/tailwindcss.png"
-import dockerIcon from "/docker.png"
-import gitIcon from "/git.png"
-import graphqlIcon from "/graphql.png"
-import htmlIcon from "/html.png"
-import jestIcon from "/jest.png"
-import mongodbIcon from "/mongodb.png"
-import mysqlIcon from "/mysql.png"
-import postgresIcon from "/postgres.png"
-import pythonIcon from "/python.png"
+import { useLanguage } from "../contexts/LanguageContext";
+import javascriptIcon from "/javascript.png";
+import typescriptIcon from "/typescript.png";
+import reactIcon from "/react.png";
+import nodejsIcon from "/nodejs.png";
+import cssIcon from "/css.png";
+import tailwindcssIcon from "/tailwindcss.png";
+import dockerIcon from "/docker.png";
+import gitIcon from "/git.png";
+import graphqlIcon from "/graphql.png";
+import htmlIcon from "/html.png";
+import jestIcon from "/jest.png";
+import mongodbIcon from "/mongodb.png";
+import mysqlIcon from "/mysql.png";
+import postgresIcon from "/postgres.png";
+import pythonIcon from "/python.png";
 
 const About = () => {
-    return (
-        <Layout>
-            <main className="h-full">
-                <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.01]">ABOUT</h1>
-                <div className="flex flex-col justify-around h-full w-full items-center min-[800px]:flex-row">
-                    <section className="w-3/4">
-                        {/* <p>Olá! Sou Marcelo, atualmente cursando Ciência da Computação e apaixonado por explorar o vasto mundo da programação. Ao longo de minha jornada, acumulei valiosos conhecimentos em TypeScript, JavaScript, React, Node.js, Nest.js, Jest, SQL, GraphQL, APIs, HTML e CSS. Minha trajetória profissional inclui uma experiência enriquecedora como instrutor de desenvolvimento de software, onde pude compartilhar meu entusiasmo pela programação por um ano e meio.</p> */}
-                        {/* <p className="ml-10">Desenvolvedor full stack com experiência em TypeScript, JavaScript, React, Node.js, Nest.js, Jest, SQL, GraphQL. Atualmente estou cursando Ciência da Computação e sempre buscando mais conhecimentos</p> */}
-                        <p className="ml-10">Full stack developer with experience in TypeScript, JavaScript, React, Node.js, Nest.JS, Jest, SQL, GraphQL. Currently I am studying Computer Science and always looking for more knowledge</p>
-                    </section>
-                    <section className=" text-gray-600 flex justify-center md:w-2/4 lg:w-3/4">
-                        <div className="flex gap-5 flex-wrap justify-center min-[1280px]:w-1/2">
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={gitIcon} alt="git" />
-                                <figcaption>Git</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={htmlIcon} alt="html" />
-                                <figcaption>Html</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={cssIcon} alt="css" />
-                                <figcaption>Css</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={javascriptIcon} alt="javascript" />
-                                <figcaption>Javascript</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={typescriptIcon} alt="typescript" />
-                                <figcaption>Typescript</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={pythonIcon} alt="python" />
-                                <figcaption>Python</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={tailwindcssIcon} alt="tailwindcss" />
-                                <figcaption>Tailwindcss</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={jestIcon} alt="jestjs" />
-                                <figcaption>Jest</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={reactIcon} alt="reactjs" />
-                                <figcaption>React</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={nodejsIcon} alt="nodejs" />
-                                <figcaption>Nodejs</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={graphqlIcon} alt="graphql" />
-                                <figcaption>Graphql</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={mysqlIcon} alt="mysql" />
-                                <figcaption>Mysql</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={postgresIcon} alt="postgresql" />
-                                <figcaption>Postgresql</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={mongodbIcon} alt="mongodb" />
-                                <figcaption>MongoDB</figcaption>
-                            </figure>
-                            <figure className="flex flex-col items-center w-20">
-                                <img className="w-12 h-12" src={dockerIcon} alt="docker" />
-                                <figcaption>Docker</figcaption>
-                            </figure>
-                        </div>
-                    </section>
-                </div>
-            </main>
-        </Layout>
-    )
-}
+  const { language } = useLanguage();
+  const [content, setContent] = useState({ title: "", description: "" });
+
+  useEffect(() => {
+    const loadContent = async () => {
+      const contentData = await import(`../jsons/about-${language}.json`);
+      setContent(contentData.default);
+    };
+
+    loadContent();
+  }, [language]);
+
+  return (
+    <Layout>
+      <main className="h-full">
+        <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.01]">
+          ABOUT
+        </h1>
+        <div className="flex flex-col justify-around h-full w-full items-center min-[800px]:flex-row">
+          <section className="w-3/4">
+            <p className="ml-10">{content.description}</p>
+          </section>
+          <section className=" text-gray-600 flex justify-center md:w-2/4 lg:w-3/4">
+            <div className="flex gap-5 flex-wrap justify-center min-[1280px]:w-1/2">
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={gitIcon} alt="git" />
+                <figcaption>Git</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={htmlIcon} alt="html" />
+                <figcaption>Html</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={cssIcon} alt="css" />
+                <figcaption>Css</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img
+                  className="w-12 h-12"
+                  src={javascriptIcon}
+                  alt="javascript"
+                />
+                <figcaption>Javascript</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img
+                  className="w-12 h-12"
+                  src={typescriptIcon}
+                  alt="typescript"
+                />
+                <figcaption>Typescript</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={pythonIcon} alt="python" />
+                <figcaption>Python</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img
+                  className="w-12 h-12"
+                  src={tailwindcssIcon}
+                  alt="tailwindcss"
+                />
+                <figcaption>Tailwindcss</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={jestIcon} alt="jestjs" />
+                <figcaption>Jest</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={reactIcon} alt="reactjs" />
+                <figcaption>React</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={nodejsIcon} alt="nodejs" />
+                <figcaption>Nodejs</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={graphqlIcon} alt="graphql" />
+                <figcaption>Graphql</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={mysqlIcon} alt="mysql" />
+                <figcaption>Mysql</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img
+                  className="w-12 h-12"
+                  src={postgresIcon}
+                  alt="postgresql"
+                />
+                <figcaption>Postgresql</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={mongodbIcon} alt="mongodb" />
+                <figcaption>MongoDB</figcaption>
+              </figure>
+              <figure className="flex flex-col items-center w-20">
+                <img className="w-12 h-12" src={dockerIcon} alt="docker" />
+                <figcaption>Docker</figcaption>
+              </figure>
+            </div>
+          </section>
+        </div>
+      </main>
+    </Layout>
+  );
+};
 
 export default About;

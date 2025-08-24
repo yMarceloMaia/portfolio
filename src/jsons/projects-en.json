@@ -1,26 +1,36 @@
 {
     "projects": [
       {
-        "title": "Corporate Website",
-        "description": "Development of a corporate website for a technology company. Included responsive design, API integration, and performance optimization.",
-        "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Node.js"],
-        "image": "corporate.jpg",
-        "link": "https://www.example-corporate.com"
+        "title": "Task Management System",
+        "description": "A full-stack application that allows users to create, manage, and track their tasks. It features an intuitive dashboard, user authentication, and real-time notifications.",
+        "technologies": ["React", "Node.js", "Express", "MongoDB", "Socket.io", "TailwindCSS"],
+        "image": "project-1.jpg",
+        "link": "https://www.example-task-manager.com",
+        "repository": "https://github.com/yMarceloMaia/task-manager"
       },
       {
-        "title": "Online Store",
-        "description": "Creation of an e-commerce platform for a clothing store. Implemented shopping cart, payment integration, and product management.",
-        "technologies": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Firebase"],
-        "image": "online-store.jpg",
-        "link": "https://www.example-onlinestore.com"
+        "title": "E-commerce Platform",
+        "description": "A complete online store with a shopping cart, checkout, online payment, product management, and an admin panel. Integrated with major payment gateways.",
+        "technologies": ["Vue.js", "NestJS", "PostgreSQL", "Stripe", "GraphQL", "TypeScript"],
+        "image": "project-2.jpg",
+        "link": "https://www.example-ecommerce.com",
+        "repository": "https://github.com/yMarceloMaia/ecommerce-platform"
       },
       {
-        "title": "Personal Blog",
-        "description": "Development of a personal blog with CRUD functionalities. Included an admin panel to manage posts and comments.",
-        "technologies": ["HTML5", "CSS3", "JavaScript", "Express.js", "MongoDB"],
-        "image": "personal-blog.jpg",
-        "link": "https://www.my-personalblog.com"
+        "title": "Blog with CMS",
+        "description": "A personal blog with a content management system (CMS) to create, edit, and delete posts. Optimized for SEO and with a responsive design.",
+        "technologies": ["Next.js", "Strapi", "Markdown", "PostgreSQL", "TailwindCSS"],
+        "image": "project-3.jpg",
+        "link": "https://www.example-blog-cms.com",
+        "repository": "https://github.com/yMarceloMaia/blog-cms"
+      },
+      {
+        "title": "Data Analysis API",
+        "description": "A RESTful API for analyzing large volumes of data. The architecture is based on microservices and uses high-performance technologies for data processing and querying.",
+        "technologies": ["Python", "FastAPI", "Pandas", "Docker", "RabbitMQ", "Redis"],
+        "image": "project-4.jpg",
+        "link": "https://www.example-data-analysis-api.com",
+        "repository": "https://github.com/yMarceloMaia/data-analysis-api"
       }
     ]
   }
-  

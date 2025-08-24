@@ -1,26 +1,36 @@
 {
     "projects": [
       {
-        "title": "Website Corporativo",
-        "description": "Desenvolvimento de um website corporativo para uma empresa de tecnologia. Incluiu design responsivo, integração de API e otimização de desempenho.",
-        "technologies": ["HTML5", "CSS3", "JavaScript", "React", "Node.js"],
-        "image": "corporativo.jpg",
-        "link": "https://www.exemplo-corporativo.com"
+        "title": "Sistema de Gerenciamento de Tarefas",
+        "description": "Uma aplicação full-stack que permite aos usuários criar, gerenciar e acompanhar suas tarefas. Possui um painel de controle intuitivo, autenticação de usuário e notificações em tempo real.",
+        "technologies": ["React", "Node.js", "Express", "MongoDB", "Socket.io", "TailwindCSS"],
+        "image": "project-1.jpg",
+        "link": "https://www.exemplo-gerenciador-tarefas.com",
+        "repository": "https://github.com/yMarceloMaia/task-manager"
       },
       {
-        "title": "Loja Online",
-        "description": "Criação de uma plataforma de comércio eletrônico para uma loja de roupas. Implementação de carrinho de compras, integração de pagamento e administração de produtos.",
-        "technologies": ["HTML5", "CSS3", "JavaScript", "Vue.js", "Firebase"],
-        "image": "loja-online.jpg",
-        "link": "https://www.exemplo-lojaonline.com"
+        "title": "Plataforma de E-commerce",
+        "description": "Uma loja online completa com carrinho de compras, checkout, pagamento online, gerenciamento de produtos e painel de administração. Integrado com as principais gateways de pagamento.",
+        "technologies": ["Vue.js", "NestJS", "PostgreSQL", "Stripe", "GraphQL", "TypeScript"],
+        "image": "project-2.jpg",
+        "link": "https://www.exemplo-ecommerce.com",
+        "repository": "https://github.com/yMarceloMaia/ecommerce-platform"
       },
       {
-        "title": "Blog Pessoal",
-        "description": "Desenvolvimento de um blog pessoal com funcionalidades de CRUD. Incluiu um painel de administração para gerenciar postagens e comentários.",
-        "technologies": ["HTML5", "CSS3", "JavaScript", "Express.js", "MongoDB"],
-        "image": "blog-pessoal.jpg",
-        "link": "https://www.meu-blogpessoal.com"
+        "title": "Blog com CMS",
+        "description": "Um blog pessoal com um sistema de gerenciamento de conteúdo (CMS) para criar, editar e excluir postagens. Otimizado para SEO e com design responsivo.",
+        "technologies": ["Next.js", "Strapi", "Markdown", "PostgreSQL", "TailwindCSS"],
+        "image": "project-3.jpg",
+        "link": "https://www.exemplo-blog-cms.com",
+        "repository": "https://github.com/yMarceloMaia/blog-cms"
+      },
+      {
+        "title": "API de Análise de Dados",
+        "description": "Uma API RESTful para análise de grandes volumes de dados. A arquitetura é baseada em microsserviços e utiliza tecnologias de alta performance para processamento e consulta de dados.",
+        "technologies": ["Python", "FastAPI", "Pandas", "Docker", "RabbitMQ", "Redis"],
+        "image": "project-4.jpg",
+        "link": "https://www.exemplo-api-analise.com",
+        "repository": "https://github.com/yMarceloMaia/data-analysis-api"
       }
     ]
   }
-  

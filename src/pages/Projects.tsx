@@ -1,20 +1,37 @@
-import Card from "../components/Card"
-import Layout from "../components/Layout"
-import projectsData from "../jsons/projects-en.json"
+import { useEffect, useState } from "react";
+import Card from "../components/Card";
+import Layout from "../components/Layout";
+import { useLanguage } from "../contexts/LanguageContext";
 
 const Projects = () => {
-    const { projects } = projectsData
-    return (
-        <Layout>
-            <main className="h-full relative flex gap-4">
-                {projects.map(project => (
-                    <Card project={project} />
-                ))}
-                <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.01]">PROJECTS</h1>
-            </main>
-        </Layout>
+  const { language } = useLanguage();
+  const [projects, setProjects] = useState([]);
 
-    )
-}
+  useEffect(() => {
+    const loadProjects = async () => {
+      const projectsData = await import(`../jsons/projects-${language}.json`);
+      setProjects(projectsData.projects);
+    };
+
+    loadProjects();
+  }, [language]);
+
+  return (
+    <Layout>
+      <main className="h-full w-full flex justify-center items-center">
+        <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.01]">
+          PROJECTS
+        </h1>
+        <section className="w-5/6 h-full flex items-center">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <Card key={project.title} project={project} />
+            ))}
+          </div>
+        </section>
+      </main>
+    </Layout>
+  );
+};
 
 export default Projects;

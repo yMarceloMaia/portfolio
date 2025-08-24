@@ -1,16 +1,19 @@
-import { BrowserRouter } from 'react-router-dom'
-import './App.css'
-import { Router } from './Router'
+import { BrowserRouter } from 'react-router-dom';
+import './App.css';
+import { Router } from './Router';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
 
   return (
     <main className='flex justify-center'>
       <BrowserRouter>
-        <Router />
+        <LanguageProvider>
+          <Router />
+        </LanguageProvider>
       </BrowserRouter>
     </main>
   )
 }
 
-export default App
+export default App;
