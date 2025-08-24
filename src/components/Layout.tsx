@@ -41,9 +41,9 @@ const Layout = ({ children }: LayoutProps) => {
                 theme === "light" ? "title-light" : ""
               }`}
               id="title"
-              data-text="Web Developer"
+              data-text="full stack developer"
             >
-              Web Developer
+              full stack developer
             </h1>
           </section>
 

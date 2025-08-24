@@ -315,6 +315,11 @@
     --color: black;
 }
 
+.input:checked+.btn.btn-light {
+  --primary: #000000;
+  color: white;
+}
+
 .icon-light {
     filter: invert(1);
 }
