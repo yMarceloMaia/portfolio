@@ -117,7 +117,7 @@ const Layout = ({ children }: LayoutProps) => {
                   <span className="btn__glitch">Contact_</span>
                 </div>
               </div>
-              <div className="radio-wrapper">
+              {/* <div className="radio-wrapper">
                 <input
                   className="input"
                   name="btn"
@@ -130,7 +130,7 @@ const Layout = ({ children }: LayoutProps) => {
                   _Projects<span></span>
                   <span className="btn__glitch">Projetcts_</span>
                 </div>
-              </div>
+              </div> */}
               <div className="radio-wrapper">
                 <button
                   onClick={toggleLanguage}
