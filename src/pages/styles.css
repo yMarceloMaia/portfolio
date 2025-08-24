@@ -309,8 +309,11 @@
   line-height: 6.2px;
 }
 
-
-
+.btn-light {
+    --primary: #ffffff;
+    --shadow-primary: #000000;
+    --color: black;
+}
 
 
 /* .layout-main {
