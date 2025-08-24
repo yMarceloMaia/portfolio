@@ -7,7 +7,6 @@
 }
 
 body {
-  background: #000000;
   --gap: 5em;
   --line: 1px;
   --color: rgba(255, 255, 255, 0.2);

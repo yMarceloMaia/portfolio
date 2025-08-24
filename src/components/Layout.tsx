@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -13,6 +13,32 @@ const Layout = ({ children }: LayoutProps) => {
   const { pathname } = useLocation();
   const { language, toggleLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    if (body) {
+      if (theme === "dark") {
+        body.style.setProperty("--color", "rgba(255, 255, 255, 0.2)");
+      } else {
+        body.style.setProperty("--color", "rgba(0, 0, 0, 0.2)");
+      }
+    }
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (body) {
+        const { clientX, clientY } = e;
+        const x = -(clientX / window.innerWidth) * 20;
+        const y = -(clientY / window.innerHeight) * 20;
+        body.style.backgroundPosition = `${x}px ${y}px`;
+      }
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [theme]);
 
   return (
     <main
