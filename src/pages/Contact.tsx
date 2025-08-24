@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
+import { useLanguage } from "../contexts/LanguageContext";
+import { useTheme } from "../contexts/ThemeContext";
+import emailIcon from "/email.png";
 import githubIcon from "/github.png";
 import linkedinIcon from "/linkedin.png";
-import emailIcon from "/email.png";
-import { useLanguage } from "../contexts/LanguageContext";
 
 const Contact = () => {
   const { language } = useLanguage();
+  const { theme } = useTheme();
   const [content, setContent] = useState({
     title: "",
     subtitle: "",
@@ -48,7 +50,7 @@ const Contact = () => {
               <div className="flex flex-col items-center transform transition-transform hover:scale-110">
                 <a onClick={handleEmailButtonClick} className="cursor-pointer">
                   <img
-                    className="w-16 h-16 mb-2"
+                    className={`w-16 h-16 mb-2 ${theme === 'light' ? 'icon-light' : ''}`}
                     src={emailIcon}
                     alt="email icon"
                   />
@@ -63,7 +65,7 @@ const Contact = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className="w-20 h-20"
+                    className={`w-20 h-20 ${theme === 'light' ? 'icon-light' : ''}`}
                     src={githubIcon}
                     alt="github icon"
                   />
@@ -77,7 +79,7 @@ const Contact = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className="w-20 h-20"
+                    className={`w-20 h-20 ${theme === 'light' ? 'icon-light' : ''}`}
                     src={linkedinIcon}
                     alt="linkedin icon"
                   />

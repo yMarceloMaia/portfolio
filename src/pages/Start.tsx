@@ -24,7 +24,7 @@ const Start = () => {
             className="w-full h-screen flex justify-center items-center">
             <h1
                 onClick={() => navigate("/home")}
-                className="text-4xl font-nixie blur-out-expand-fwd-target">
+                className="text-4xl font-nixie blur-out-expand-fwd-target text-white">
                 <span className="font-bold">Marcelo Maia</span> Portfolio
             </h1>
         </motion.div>

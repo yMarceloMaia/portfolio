@@ -315,6 +315,10 @@
     --color: black;
 }
 
+.icon-light {
+    filter: invert(1);
+}
+
 
 /* .layout-main {
   background: linear-gradient(-45deg, #0a0a0a, #000000, #000000, #000000);

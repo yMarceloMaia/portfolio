@@ -16,11 +16,11 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <main
-      className="h-screen w-screen max-w-[1800px] flex justify-center items-center bg-theme text-theme"
+      className="h-screen w-screen max-w-[1800px] flex justify-center items-center text-theme"
       id="layout"
     >
       <section
-        className={`layout-main flex flex-col h-[88%] w-[88%] border border-gray-600 relative`}
+        className={`layout-main flex flex-col h-[88%] w-[88%] border border-gray-600 relative bg-theme`}
       >
         <section className="flex flex-col-reverse justify-center md:flex-row md:justify-between md:items-center">
           <section
@@ -28,14 +28,18 @@ const Layout = ({ children }: LayoutProps) => {
             id="section-title"
           >
             <h1
-              className={`text-5xl font-nixie z-10 text-theme ${theme === 'light' ? 'title-light' : ''}`}
+              className={`text-5xl font-nixie z-10 text-theme ${
+                theme === "light" ? "title-light" : ""
+              }`}
               id="title"
               data-text="I'm Marcelo Maia"
             >
               I'm Marcelo Maia
             </h1>
             <h1
-              className={`text-3xl font-nixie z-10 mt-5 text-theme ${theme === 'light' ? 'title-light' : ''}`}
+              className={`text-3xl font-nixie z-10 mt-5 text-theme ${
+                theme === "light" ? "title-light" : ""
+              }`}
               id="title"
               data-text="Web Developer"
             >
