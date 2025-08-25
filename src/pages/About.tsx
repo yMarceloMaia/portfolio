@@ -21,7 +21,7 @@ import pythonIcon from "/python.png";
 const About = () => {
   const { language } = useLanguage();
   const { theme } = useTheme();
-  const [content, setContent] = useState({ title: "", description: "" });
+  const [content, setContent] = useState({ experiences: [] });
 
   useEffect(() => {
     const loadContent = async () => {
@@ -38,88 +38,98 @@ const About = () => {
         <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.01]">
           ABOUT
         </h1>
-        <div className="flex flex-col justify-around h-full w-full items-center min-[800px]:flex-row">
+        <div className="flex flex-col justify-around h-full w-full items-center">
           <section className="w-3/4">
-            <p className="ml-10">{content.description}</p>
-          </section>
-          <section className=" text-gray-600 flex justify-center md:w-2/4 lg:w-3/4">
-            <div className="flex gap-5 flex-wrap justify-center min-[1280px]:w-1/2">
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={gitIcon} alt="git" />
-                <figcaption>Git</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={htmlIcon} alt="html" />
-                <figcaption>Html</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={cssIcon} alt="css" />
-                <figcaption>Css</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img
-                  className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
-                  src={javascriptIcon}
-                  alt="javascript"
-                />
-                <figcaption>Javascript</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img
-                  className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
-                  src={typescriptIcon}
-                  alt="typescript"
-                />
-                <figcaption>Typescript</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={pythonIcon} alt="python" />
-                <figcaption>Python</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img
-                  className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
-                  src={tailwindcssIcon}
-                  alt="tailwindcss"
-                />
-                <figcaption>Tailwindcss</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={jestIcon} alt="jestjs" />
-                <figcaption>Jest</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={reactIcon} alt="reactjs" />
-                <figcaption>React</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={nodejsIcon} alt="nodejs" />
-                <figcaption>Nodejs</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={graphqlIcon} alt="graphql" />
-                <figcaption>Graphql</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={mysqlIcon} alt="mysql" />
-                <figcaption>Mysql</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img
-                  className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
-                  src={postgresIcon}
-                  alt="postgresql"
-                />
-                <figcaption>Postgresql</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={mongodbIcon} alt="mongodb" />
-                <figcaption>MongoDB</figcaption>
-              </figure>
-              <figure className="flex flex-col items-center w-20">
-                <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={dockerIcon} alt="docker" />
-                <figcaption>Docker</figcaption>
-              </figure>
+            <div>
+              <h2 className="text-2xl font-bold mb-2">Experiências</h2>
+              {content.experiences.map((exp, index) => (
+                <div className="mb-4" key={index}>
+                  <h3 className="text-xl font-bold">{exp.title}</h3>
+                  <p className="font-semibold">{exp.role} ({exp.period})</p>
+                  <p>{exp.description}</p>
+                </div>
+              ))}
+            </div>
+            <div>
+              <h2 className="text-2xl font-bold mb-2">Habilidades</h2>
+              <div className="flex gap-5 flex-wrap justify-center">
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={gitIcon} alt="git" />
+                  <figcaption>Git</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={htmlIcon} alt="html" />
+                  <figcaption>Html</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={cssIcon} alt="css" />
+                  <figcaption>Css</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img
+                    className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
+                    src={javascriptIcon}
+                    alt="javascript"
+                  />
+                  <figcaption>Javascript</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img
+                    className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
+                    src={typescriptIcon}
+                    alt="typescript"
+                  />
+                  <figcaption>Typescript</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={pythonIcon} alt="python" />
+                  <figcaption>Python</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img
+                    className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
+                    src={tailwindcssIcon}
+                    alt="tailwindcss"
+                  />
+                  <figcaption>Tailwindcss</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={jestIcon} alt="jestjs" />
+                  <figcaption>Jest</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={reactIcon} alt="reactjs" />
+                  <figcaption>React</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={nodejsIcon} alt="nodejs" />
+                  <figcaption>Nodejs</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={graphqlIcon} alt="graphql" />
+                  <figcaption>Graphql</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={mysqlIcon} alt="mysql" />
+                  <figcaption>Mysql</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img
+                    className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`}
+                    src={postgresIcon}
+                    alt="postgresql"
+                  />
+                  <figcaption>Postgresql</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={mongodbIcon} alt="mongodb" />
+                  <figcaption>MongoDB</figcaption>
+                </figure>
+                <figure className="flex flex-col items-center w-20">
+                  <img className={`w-12 h-12 ${theme === 'light' ? 'icon-light' : ''}`} src={dockerIcon} alt="docker" />
+                  <figcaption>Docker</figcaption>
+                </figure>
+              </div>
             </div>
           </section>
         </div>

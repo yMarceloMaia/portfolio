@@ -1,4 +1,22 @@
 {
-    "title": "About Me",
-    "description": "I am a full stack developer with a passion for creating beautiful and functional web applications. I have experience with a variety of technologies, including React, Node.js, and Python. I am always looking for new challenges and opportunities to learn and grow."
+  "experiences": [
+    {
+      "title": "Clube Delivery - volunteer",
+      "role": "Fullstack Developer",
+      "period": "April 2024 - April 2025",
+      "description": "I was responsible for the creation and implementation of the checkout flow in the application developed in React Native. On the backend, I used NestJS to develop and structure modules, create endpoints, and integrate functionalities. I participated in the conception of the interfaces, collaborating in the creation of screens in Figma."
+    },
+    {
+      "title": "Labenu",
+      "role": "Pedagogical Instructor of Web Development",
+      "period": "December 2022 - October 2023",
+      "description": "Taught live classes to students, corrected projects, and prepared pedagogical material. Code review of student projects with feedback on the code."
+    },
+    {
+      "title": "Ten",
+      "role": "Full Stack Development",
+      "period": "August 2024 - Currently",
+      "description": "I work on the development and maintenance of Ten's Regulatory Portal, a SaaS platform for managing regulatory documents, such as the Reference Form required by the CVM. Acting in the entire product life cycle, from the implementation of new functionalities to the maintenance of existing ones, ensuring security and compliance with regulatory standards."
+    }
+  ]
 }

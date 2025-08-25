@@ -1,4 +1,22 @@
 {
-    "title": "Sobre Mim",
-    "description": "Sou um desenvolvedor full stack apaixonado por criar aplicações web bonitas e funcionais. Tenho experiência com diversas tecnologias, incluindo React, Node.js e Python. Estou sempre em busca de novos desafios e oportunidades para aprender e crescer."
+  "experiences": [
+    {
+      "title": "Clube Delivery - voluntário",
+      "role": "Desenvolvedor Fullstack",
+      "period": "Abril 2024 - Abril 2025",
+      "description": "fui responsável pela criação e implementação do fluxo de checkout no aplicativo desenvolvido em React Native. No backend, utilizei NestJS para desenvolver e estruturar módulos, criar endpoints e integrar funcionalidades. participei na concepção das interfaces, colaborando na criação de telas no Figma"
+    },
+    {
+      "title": "Labenu",
+      "role": "Instrutor Pedagógico de Desenvolvimento Web",
+      "period": "Dezembro 2022 - Outubro 2023",
+      "description": "Ministrar aulas ao vivo para estudantes, correção de projetos e preparação de material pedagógico. Code review em projetos dos alunos com retorno de feedbacks sobre o código."
+    },
+    {
+      "title": "Ten",
+      "role": "Desenvolvimento Full Stack",
+      "period": "Agosto 2024 - Atualmente",
+      "description": "Atuo no desenvolvimento e manutenção do Portal Regulatório da Ten, uma plataforma SaaS voltada para a gestão de documentos regulatórios, como o Formulário de Referência exigido pela CVM. Atuando em todo o ciclo de vida do produto, desde a implementação de novas funcionalidades como manutenção das que já existem, garantindo segurança e conformidade com as normas regulatórias."
+    }
+  ]
 }
