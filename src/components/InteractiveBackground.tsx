@@ -1,6 +1,12 @@
 import React, { useRef, useEffect } from "react";
 
-const InteractiveBackground: React.FC = () => {
+interface InteractiveBackgroundProps {
+  theme: string;
+}
+
+const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
+  theme,
+}) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
@@ -11,6 +17,11 @@ const InteractiveBackground: React.FC = () => {
     if (!ctx) return;
 
     let mouse = { x: -1000, y: -1000 };
+
+    const pointColor =
+      theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)";
+    const lineColor =
+      theme === "dark" ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)";
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -51,7 +62,7 @@ const InteractiveBackground: React.FC = () => {
         const distance = Math.sqrt(dx * dx + dy * dy);
         const forceDirectionX = dx / distance;
         const forceDirectionY = dy / distance;
-        const maxDistance = 100;
+        const maxDistance = 150;
         const force = (maxDistance - distance) / maxDistance;
 
         if (distance < maxDistance) {
@@ -67,7 +78,7 @@ const InteractiveBackground: React.FC = () => {
         if (!ctx) return;
         ctx.beginPath();
         ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+        ctx.fillStyle = pointColor;
         ctx.fill();
       }
     }
@@ -108,7 +119,7 @@ const InteractiveBackground: React.FC = () => {
           ctx.lineTo(p4.x, p4.y);
           ctx.lineTo(p3.x, p3.y);
           ctx.closePath();
-          ctx.strokeStyle = "rgba(255, 255, 255, 0.2)";
+          ctx.strokeStyle = lineColor;
           ctx.stroke();
         }
       }
@@ -123,7 +134,7 @@ const InteractiveBackground: React.FC = () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
     };
-  }, []);
+  }, [theme]);
 
   return (
     <canvas

@@ -17,7 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <>
-      <InteractiveBackground />
+      <InteractiveBackground theme={theme} />
       <main
         className="h-screen w-screen max-w-[1800px] flex justify-center items-center text-theme"
         id="layout"
