@@ -19,9 +19,6 @@ const Projects = () => {
   return (
     <Layout>
       <main className="h-full w-full flex justify-center items-center">
-        <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.01]">
-          PROJECTS
-        </h1>
         <section className="w-5/6 h-full flex items-center">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (

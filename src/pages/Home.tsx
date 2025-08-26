@@ -12,9 +12,6 @@ const Home = () => {
   return (
     <Layout>
       <main className="z-30 flex flex-col items-center justify-center h-full">
-        <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.02]">
-          HOME
-        </h1>
         <section className="w-3/4 text-center">
           <p className="text-lg">
             {language === "en"

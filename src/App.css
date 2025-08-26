@@ -3,10 +3,9 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-
 }
 
-body {
+/* body {
   --gap: 5em;
   --line: 1px;
   --color: rgba(255, 255, 255, 0.2);
@@ -24,8 +23,7 @@ body {
       var(--color) var(--gap)
     );
   background-size: var(--gap) var(--gap);
-}
-
+} */
 
 .blur-out-expand-fwd {
 	-webkit-animation: blur-out-expand-fwd 1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -453,6 +451,3 @@ body {
 
 
 /* ====================================================================================================================== */
-
-
-

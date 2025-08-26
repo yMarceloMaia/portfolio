@@ -35,22 +35,19 @@ const Contact = () => {
   return (
     <Layout>
       <main className="h-full w-full flex justify-center items-center">
-        <h1 className="absolute right-0 bottom-0 text-[200px] font-body z-0 opacity-[.01]">
-          CONTACT
-        </h1>
         <section className="w-5/6 h-full flex items-center">
           <section className="w-full h-3/4 flex flex-col justify-center items-center text-center">
             <section>
               <h1 className="text-4xl mb-4">{content.title}</h1>
-              <p className="text-lg text-gray-600 mb-8">
-                {content.subtitle}
-              </p>
+              <p className="text-lg text-gray-600 mb-8">{content.subtitle}</p>
             </section>
             <section className="flex mt-8 gap-12 items-center z-30 flex-wrap justify-center">
               <div className="flex flex-col items-center transform transition-transform hover:scale-110">
                 <a onClick={handleEmailButtonClick} className="cursor-pointer">
                   <img
-                    className={`w-16 h-16 mb-2 ${theme === 'light' ? 'icon-light' : ''}`}
+                    className={`w-16 h-16 mb-2 ${
+                      theme === "light" ? "icon-light" : ""
+                    }`}
                     src={emailIcon}
                     alt="email icon"
                   />
@@ -65,7 +62,9 @@ const Contact = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className={`w-20 h-20 ${theme === 'light' ? 'icon-light' : ''}`}
+                    className={`w-20 h-20 ${
+                      theme === "light" ? "icon-light" : ""
+                    }`}
                     src={githubIcon}
                     alt="github icon"
                   />
@@ -79,7 +78,9 @@ const Contact = () => {
                   rel="noopener noreferrer"
                 >
                   <img
-                    className={`w-20 h-20 ${theme === 'light' ? 'icon-light' : ''}`}
+                    className={`w-20 h-20 ${
+                      theme === "light" ? "icon-light" : ""
+                    }`}
                     src={linkedinIcon}
                     alt="linkedin icon"
                   />
