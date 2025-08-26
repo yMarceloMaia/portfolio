@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nixie+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,7 +9,7 @@
 
 :root {
   box-sizing: border-box;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
 body {
@@ -17,6 +19,11 @@ body {
   background-color: var(--background);
 }
 
+a,
+button {
+  cursor: pointer !important;
+}
+
 body[data-theme="light"] {
   --background: #ffffff;
   --text: #000000;
@@ -24,6 +31,7 @@ body[data-theme="light"] {
   --card-text: #1f2937;
   --link: #3b82f6;
   --link-hover: #1d4ed8;
+  cursor: url('./assets/cursor-black-2.svg') 16 16, auto;
 }
 
 body[data-theme="dark"] {
@@ -33,10 +41,13 @@ body[data-theme="dark"] {
   --card-text: #d1d5db;
   --link: #60a5fa;
   --link-hover: #93c5fd;
+  cursor: url('./assets/cursor-white-2.svg') 16 16, auto;
 }
 
 .bg-theme {
   background-color: transparent;
+  /* background-color: var(--background); */
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .text-theme {

@@ -27,8 +27,8 @@ const Layout = ({ children }: LayoutProps) => {
     const handleMouseMove = (e: MouseEvent) => {
       if (body) {
         const { clientX, clientY } = e;
-        const x = -(clientX / window.innerWidth) * 20;
-        const y = -(clientY / window.innerHeight) * 20;
+        const x = -(clientX / window.innerWidth) * 100;
+        const y = -(clientY / window.innerHeight) * 100;
         body.style.backgroundPosition = `${x}px ${y}px`;
       }
     };
