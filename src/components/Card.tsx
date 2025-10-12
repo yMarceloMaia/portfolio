@@ -1,3 +1,4 @@
+import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 
 export type Project = {
@@ -15,6 +16,7 @@ type PropsProjects = {
 
 const Card = ({ project }: PropsProjects) => {
   const { theme } = useTheme();
+  const { language } = useLanguage();
 
   const cardClasses =
     theme === "dark"
@@ -54,7 +56,7 @@ const Card = ({ project }: PropsProjects) => {
             rel="noopener noreferrer"
             className="text-blue-500 hover:text-blue-400"
           >
-            View Project
+            {language === "en" ? "View Project" : "Ver Projeto"}
           </a>
           <a
             href={project.repository}

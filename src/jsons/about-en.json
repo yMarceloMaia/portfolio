@@ -1,6 +1,12 @@
 {
   "experiences": [
     {
+      "title": "Ten",
+      "role": "Full Stack Development",
+      "period": "August 2024 - Currently",
+      "description": "I work on the development and maintenance of Ten's Regulatory Portal, a SaaS platform for managing regulatory documents, such as the Reference Form required by the CVM. Acting in the entire product life cycle, from the implementation of new functionalities to the maintenance of existing ones, ensuring security and compliance with regulatory standards."
+    },
+    {
       "title": "Clube Delivery - volunteer",
       "role": "Fullstack Developer",
       "period": "April 2024 - April 2025",
@@ -11,12 +17,6 @@
       "role": "Pedagogical Instructor of Web Development",
       "period": "December 2022 - October 2023",
       "description": "Taught live classes to students, corrected projects, and prepared pedagogical material. Code review of student projects with feedback on the code."
-    },
-    {
-      "title": "Ten",
-      "role": "Full Stack Development",
-      "period": "August 2024 - Currently",
-      "description": "I work on the development and maintenance of Ten's Regulatory Portal, a SaaS platform for managing regulatory documents, such as the Reference Form required by the CVM. Acting in the entire product life cycle, from the implementation of new functionalities to the maintenance of existing ones, ensuring security and compliance with regulatory standards."
     }
   ]
 }

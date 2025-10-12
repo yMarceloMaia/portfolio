@@ -145,7 +145,7 @@
 
 /* Title effect */
 
-#title {
+/* #title {
   position: relative;
   letter-spacing: 5px;
 }
@@ -174,7 +174,7 @@
   overflow: hidden;
   clip: rect(0, 900px, 0, 0);
   animation: noise-after 2s infinite linear alternate-reverse;
-}
+} */
 
 @keyframes noise-before {
   0% {

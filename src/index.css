@@ -31,7 +31,7 @@ body[data-theme="light"] {
   --card-text: #1f2937;
   --link: #3b82f6;
   --link-hover: #1d4ed8;
-  cursor: url('./assets/cursor-black-2.svg') 16 16, auto;
+  /* cursor: url('./assets/cursor-black-2.svg') 16 16, auto; */
 }
 
 body[data-theme="dark"] {
@@ -41,7 +41,7 @@ body[data-theme="dark"] {
   --card-text: #d1d5db;
   --link: #60a5fa;
   --link-hover: #93c5fd;
-  cursor: url('./assets/cursor-white-2.svg') 16 16, auto;
+  /* cursor: url('./assets/cursor-white-2.svg') 16 16, auto; */
 }
 
 .bg-theme {

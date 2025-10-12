@@ -62,7 +62,7 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
         const distance = Math.sqrt(dx * dx + dy * dy);
         const forceDirectionX = dx / distance;
         const forceDirectionY = dy / distance;
-        const maxDistance = 150;
+        const maxDistance = 100;
         const force = (maxDistance - distance) / maxDistance;
 
         if (distance < maxDistance) {
