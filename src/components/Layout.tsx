@@ -19,15 +19,15 @@ const Layout = ({ children }: LayoutProps) => {
     <>
       <InteractiveBackground theme={theme} />
       <main
-        className="h-screen w-screen max-w-[1800px] flex justify-center items-center text-theme"
+        className="h-auto min-h-[95vh] w-screen max-w-[1800px] flex justify-center items-center text-theme"
         id="layout"
       >
         <section
-          className={`group layout-main flex flex-col h-[88%] w-[88%] border-gray-200/20 relative rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]`}
+          className={`group h-full layout-main flex flex-col max-h-[85vh] w-[88%] border-gray-200/20 relative rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]`}
         >
           <div className="absolute top-0 left-0 w-full h-full bg-white/0 backdrop-blur-[9.2px] transition-all duration-500 ease-in-out rounded-2xl"></div>
-          <div className="relative z-10">
-            <section className="flex flex-col-reverse justify-center md:flex-row md:justify-between md:items-center">
+          <div className="relative z-10 h-full flex flex-col">
+            <section className="flex flex-col-reverse justify-center md:flex-row md:justify-between md:items-center pb-5">
               <section
                 className=" flex flex-col justify-center items-start mt-5 ml-10"
                 id="section-title"
@@ -102,7 +102,7 @@ const Layout = ({ children }: LayoutProps) => {
                       <span className="btn__glitch">Contact_</span>
                     </div>
                   </div>
-                  <div className="radio-wrapper">
+                  {/* <div className="radio-wrapper">
                     <input
                       className="input"
                       name="btn"
@@ -117,7 +117,7 @@ const Layout = ({ children }: LayoutProps) => {
                       _Projects<span></span>
                       <span className="btn__glitch">Projetcts_</span>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="radio-wrapper">
                     <button
                       onClick={toggleLanguage}
@@ -142,7 +142,7 @@ const Layout = ({ children }: LayoutProps) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="w-full h-full overflow-auto z-20"
+              className="w-full flex-1 overflow-auto z-20 pb-5 flex justify-center items-center"
             >
               {children}
             </motion.div>

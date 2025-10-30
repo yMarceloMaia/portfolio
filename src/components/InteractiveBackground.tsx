@@ -37,7 +37,7 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
     window.addEventListener("mousemove", handleMouseMove);
     resizeCanvas();
 
-    const gap = 40;
+    const gap = 50;
     const gridSize = {
       width: Math.ceil(canvas.width / gap) + 1,
       height: Math.ceil(canvas.height / gap) + 1,

@@ -60,7 +60,7 @@ const About = () => {
                 </div>
               ))}
             </div>
-            <div>
+            <div className="mb-5">
               <h2 className="text-2xl font-bold mb-2">Habilidades</h2>
               <div className="flex gap-5 flex-wrap justify-center">
                 <figure className="flex flex-col items-center w-20">
