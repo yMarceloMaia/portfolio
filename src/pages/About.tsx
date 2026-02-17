@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-// @ts-expect-error - module export mismatch with React 18 types
-import { GitHubCalendar } from "react-github-calendar";
+import GitHubCalendar from "react-github-calendar";
 import { useLanguage } from "../contexts/LanguageContext";
 import { useTheme } from "../contexts/ThemeContext";
 import ScrollReveal from "../components/ScrollReveal";
