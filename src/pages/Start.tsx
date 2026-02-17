@@ -1,9 +1,11 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion"
+import { useTheme } from "../contexts/ThemeContext";
 
 const Start = () => {
     const navigate = useNavigate();
+    const { theme } = useTheme();
 
     useEffect(() => {
         const timeoutId = setTimeout(() => {
@@ -24,7 +26,7 @@ const Start = () => {
             className="w-full h-screen flex justify-center items-center">
             <h1
                 onClick={() => navigate("/home")}
-                className="text-4xl font-nixie blur-out-expand-fwd-target text-white">
+                className={`text-4xl font-nixie blur-out-expand-fwd-target ${theme === "dark" ? "text-white" : "text-black"}`}>
                 <span className="font-bold">Marcelo Maia</span> Portfolio
             </h1>
         </motion.div>

@@ -10,10 +10,16 @@ export const LanguageProvider = ({
 }: {
   children: React.ReactNode;
 }) => {
-  const [language, setLanguage] = useState("en");
+  const [language, setLanguage] = useState(() => {
+    return localStorage.getItem("language") || "en";
+  });
 
   const toggleLanguage = () => {
-    setLanguage((prevLanguage) => (prevLanguage === "en" ? "pt" : "en"));
+    setLanguage((prevLanguage) => {
+      const newLanguage = prevLanguage === "en" ? "pt" : "en";
+      localStorage.setItem("language", newLanguage);
+      return newLanguage;
+    });
   };
 
   return (

@@ -4,6 +4,7 @@ import Projects from "./pages/Projects";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Start from "./pages/Start";
+import NotFound from "./pages/NotFound";
 import { AnimatePresence } from "framer-motion";
 
 export function Router() {
@@ -17,6 +18,7 @@ export function Router() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

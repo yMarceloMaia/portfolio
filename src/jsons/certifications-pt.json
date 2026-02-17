@@ -1,0 +1,22 @@
+{
+  "certifications": [
+    {
+      "title": "Ciência da Computação",
+      "issuer": "Descomplica Faculdade",
+      "date": "07/2022 - Atualmente",
+      "url": ""
+    },
+    {
+      "title": "Desenvolvimento Web Full-Stack",
+      "issuer": "Labenu",
+      "date": "09/2021 - 03/2022",
+      "url": ""
+    },
+    {
+      "title": "CS50X - Introdução a Ciência da Computação",
+      "issuer": "Harvard / edX",
+      "date": "11/2023 - 12/2023",
+      "url": ""
+    }
+  ]
+}

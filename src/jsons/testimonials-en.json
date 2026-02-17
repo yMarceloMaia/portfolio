@@ -1,0 +1,16 @@
+{
+  "testimonials": [
+    {
+      "name": "John Doe",
+      "role": "Tech Lead",
+      "company": "Company",
+      "text": "Marcelo is an outstanding developer with a keen eye for detail and a passion for clean code. He consistently delivers high-quality work."
+    },
+    {
+      "name": "Jane Smith",
+      "role": "Product Manager",
+      "company": "Company",
+      "text": "Working with Marcelo was a great experience. His ability to solve complex problems and communicate effectively made our project a success."
+    }
+  ]
+}

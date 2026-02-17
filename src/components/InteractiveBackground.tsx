@@ -4,12 +4,28 @@ interface InteractiveBackgroundProps {
   theme: string;
 }
 
+interface Particle {
+  x: number;
+  y: number;
+  baseX: number;
+  baseY: number;
+  size: number;
+  speed: number;
+  layer: number;
+  angle: number;
+  drift: number;
+}
+
 const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
   theme,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -17,11 +33,11 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
     if (!ctx) return;
 
     let mouse = { x: -1000, y: -1000 };
+    let smoothMouse = { x: -1000, y: -1000 };
+    let animationId: number;
+    let time = 0;
 
-    const pointColor =
-      theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)";
-    const lineColor =
-      theme === "dark" ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.2)";
+    const isDark = theme === "dark";
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -34,84 +50,107 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
     };
 
     window.addEventListener("resize", resizeCanvas);
-    window.addEventListener("mousemove", handleMouseMove);
+    if (!prefersReducedMotion) {
+      window.addEventListener("mousemove", handleMouseMove);
+    }
     resizeCanvas();
 
-    const gap = 50;
-    const gridSize = {
-      width: Math.ceil(canvas.width / gap) + 1,
-      height: Math.ceil(canvas.height / gap) + 1,
-    };
+    // Layer config: depth multiplier for parallax, particle count, opacity, connection distance
+    const layers = [
+      { depth: 0.02, count: 40, opacity: 0.08, maxSize: 1.5, connectionDist: 0 },
+      { depth: 0.05, count: 30, opacity: 0.15, maxSize: 2, connectionDist: 120 },
+      { depth: 0.12, count: 20, opacity: 0.3, maxSize: 3, connectionDist: 150 },
+    ];
 
-    class Point {
+    const particles: Particle[] = [];
+
+    // Create particles for each layer
+    layers.forEach((layer, layerIndex) => {
+      for (let i = 0; i < layer.count; i++) {
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        particles.push({
+          x,
+          y,
+          baseX: x,
+          baseY: y,
+          size: Math.random() * layer.maxSize + 0.5,
+          speed: layer.depth,
+          layer: layerIndex,
+          angle: Math.random() * Math.PI * 2,
+          drift: 0.2 + Math.random() * 0.5,
+        });
+      }
+    });
+
+    // Grid for the deepest interactive mesh layer
+    const gridGap = 60;
+    const gridCols = Math.ceil(canvas.width / gridGap) + 1;
+    const gridRows = Math.ceil(canvas.height / gridGap) + 1;
+
+    interface GridPoint {
       x: number;
       y: number;
-      originalX: number;
-      originalY: number;
-
-      constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-        this.originalX = x;
-        this.originalY = y;
-      }
-
-      update() {
-        const dx = this.x - mouse.x;
-        const dy = this.y - mouse.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        const forceDirectionX = dx / distance;
-        const forceDirectionY = dy / distance;
-        const maxDistance = 100;
-        const force = (maxDistance - distance) / maxDistance;
-
-        if (distance < maxDistance) {
-          this.x += forceDirectionX * force * 15;
-          this.y += forceDirectionY * force * 15;
-        } else {
-          this.x += (this.originalX - this.x) * 0.1;
-          this.y += (this.originalY - this.y) * 0.1;
-        }
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, 2, 0, Math.PI * 2);
-        ctx.fillStyle = pointColor;
-        ctx.fill();
-      }
+      ox: number;
+      oy: number;
     }
 
-    let points: Point[][] = [];
-
-    const init = () => {
-      points = [];
-      for (let i = 0; i < gridSize.width; i++) {
-        let row: Point[] = [];
-        for (let j = 0; j < gridSize.height; j++) {
-          row.push(new Point(i * gap, j * gap));
-        }
-        points.push(row);
+    const gridPoints: GridPoint[][] = [];
+    for (let i = 0; i < gridCols; i++) {
+      const row: GridPoint[] = [];
+      for (let j = 0; j < gridRows; j++) {
+        row.push({ x: i * gridGap, y: j * gridGap, ox: i * gridGap, oy: j * gridGap });
       }
+      gridPoints.push(row);
+    }
+
+    const getColor = (alpha: number) => {
+      return isDark
+        ? `rgba(255, 255, 255, ${alpha})`
+        : `rgba(0, 0, 0, ${alpha})`;
     };
 
-    const animate = () => {
+    const drawGrid = () => {
       if (!ctx) return;
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      for (let i = 0; i < gridSize.width; i++) {
-        for (let j = 0; j < gridSize.height; j++) {
-          points[i][j].update();
+      const gridParallaxDepth = 0.03;
+      const offsetX = (smoothMouse.x - canvas.width / 2) * gridParallaxDepth;
+      const offsetY = (smoothMouse.y - canvas.height / 2) * gridParallaxDepth;
+
+      // Update grid points with mouse repulsion
+      for (let i = 0; i < gridCols; i++) {
+        for (let j = 0; j < gridRows; j++) {
+          const p = gridPoints[i][j];
+          const targetX = p.ox + offsetX;
+          const targetY = p.oy + offsetY;
+
+          if (!prefersReducedMotion) {
+            const dx = p.x - smoothMouse.x;
+            const dy = p.y - smoothMouse.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            const maxDist = 120;
+
+            if (dist < maxDist) {
+              const force = (maxDist - dist) / maxDist;
+              p.x += (dx / dist) * force * 8;
+              p.y += (dy / dist) * force * 8;
+            }
+          }
+
+          p.x += (targetX - p.x) * 0.08;
+          p.y += (targetY - p.y) * 0.08;
         }
       }
 
-      for (let i = 0; i < gridSize.width - 1; i++) {
-        for (let j = 0; j < gridSize.height - 1; j++) {
-          const p1 = points[i][j];
-          const p2 = points[i + 1][j];
-          const p3 = points[i][j + 1];
-          const p4 = points[i + 1][j + 1];
+      // Draw grid lines
+      ctx.strokeStyle = getColor(0.06);
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < gridCols - 1; i++) {
+        for (let j = 0; j < gridRows - 1; j++) {
+          const p1 = gridPoints[i][j];
+          const p2 = gridPoints[i + 1][j];
+          const p3 = gridPoints[i][j + 1];
+          const p4 = gridPoints[i + 1][j + 1];
 
           ctx.beginPath();
           ctx.moveTo(p1.x, p1.y);
@@ -119,26 +158,160 @@ const InteractiveBackground: React.FC<InteractiveBackgroundProps> = ({
           ctx.lineTo(p4.x, p4.y);
           ctx.lineTo(p3.x, p3.y);
           ctx.closePath();
-          ctx.strokeStyle = lineColor;
+          ctx.stroke();
+        }
+      }
+    };
+
+    const drawParticles = () => {
+      if (!ctx) return;
+
+      particles.forEach((p) => {
+        const layer = layers[p.layer];
+
+        // Parallax offset based on mouse position
+        const parallaxX = (smoothMouse.x - canvas.width / 2) * p.speed;
+        const parallaxY = (smoothMouse.y - canvas.height / 2) * p.speed;
+
+        // Gentle floating drift
+        if (!prefersReducedMotion) {
+          p.angle += 0.005 * p.drift;
+        }
+        const driftX = Math.cos(p.angle) * p.drift * 0.3;
+        const driftY = Math.sin(p.angle * 0.7) * p.drift * 0.3;
+
+        p.x = p.baseX + parallaxX + driftX;
+        p.y = p.baseY + parallaxY + driftY;
+
+        // Wrap around screen
+        if (p.x < -20) p.baseX += canvas.width + 40;
+        if (p.x > canvas.width + 20) p.baseX -= canvas.width + 40;
+        if (p.y < -20) p.baseY += canvas.height + 40;
+        if (p.y > canvas.height + 20) p.baseY -= canvas.height + 40;
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = getColor(layer.opacity);
+        ctx.fill();
+      });
+
+      // Draw connections between particles on the same layer
+      layers.forEach((layer, layerIndex) => {
+        if (layer.connectionDist === 0) return;
+
+        const layerParticles = particles.filter((p) => p.layer === layerIndex);
+
+        for (let i = 0; i < layerParticles.length; i++) {
+          for (let j = i + 1; j < layerParticles.length; j++) {
+            const a = layerParticles[i];
+            const b = layerParticles[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const dist = Math.sqrt(dx * dx + dy * dy);
+
+            if (dist < layer.connectionDist) {
+              const alpha =
+                layer.opacity * 0.4 * (1 - dist / layer.connectionDist);
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = getColor(alpha);
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+      });
+
+      // Mouse glow
+      if (!prefersReducedMotion && smoothMouse.x > 0) {
+        const glowRadius = 180;
+        const gradient = ctx.createRadialGradient(
+          smoothMouse.x,
+          smoothMouse.y,
+          0,
+          smoothMouse.x,
+          smoothMouse.y,
+          glowRadius
+        );
+        gradient.addColorStop(0, getColor(0.06));
+        gradient.addColorStop(1, getColor(0));
+        ctx.fillStyle = gradient;
+        ctx.beginPath();
+        ctx.arc(smoothMouse.x, smoothMouse.y, glowRadius, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    };
+
+    const drawStaticScene = () => {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Draw static grid
+      ctx.strokeStyle = getColor(0.06);
+      ctx.lineWidth = 0.5;
+      for (let i = 0; i < gridCols - 1; i++) {
+        for (let j = 0; j < gridRows - 1; j++) {
+          const p1 = gridPoints[i][j];
+          const p2 = gridPoints[i + 1][j];
+          const p3 = gridPoints[i][j + 1];
+          const p4 = gridPoints[i + 1][j + 1];
+          ctx.beginPath();
+          ctx.moveTo(p1.x, p1.y);
+          ctx.lineTo(p2.x, p2.y);
+          ctx.lineTo(p4.x, p4.y);
+          ctx.lineTo(p3.x, p3.y);
+          ctx.closePath();
           ctx.stroke();
         }
       }
 
-      requestAnimationFrame(animate);
+      // Draw static particles
+      particles.forEach((p) => {
+        const layer = layers[p.layer];
+        ctx.beginPath();
+        ctx.arc(p.baseX, p.baseY, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = getColor(layer.opacity);
+        ctx.fill();
+      });
     };
 
-    init();
-    animate();
+    const animate = () => {
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      time++;
+
+      // Smooth mouse interpolation
+      smoothMouse.x += (mouse.x - smoothMouse.x) * 0.08;
+      smoothMouse.y += (mouse.y - smoothMouse.y) * 0.08;
+
+      drawGrid();
+      drawParticles();
+
+      animationId = requestAnimationFrame(animate);
+    };
+
+    if (prefersReducedMotion) {
+      drawStaticScene();
+    } else {
+      animate();
+    }
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
       window.removeEventListener("mousemove", handleMouseMove);
+      if (animationId) {
+        cancelAnimationFrame(animationId);
+      }
     };
   }, [theme]);
 
   return (
     <canvas
       ref={canvasRef}
+      aria-hidden="true"
       style={{ position: "fixed", top: 0, left: 0, zIndex: -1 }}
     />
   );

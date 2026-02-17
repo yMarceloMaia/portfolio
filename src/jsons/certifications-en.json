@@ -1,0 +1,22 @@
+{
+  "certifications": [
+    {
+      "title": "Computer Science",
+      "issuer": "Descomplica College",
+      "date": "07/2022 - Currently",
+      "url": ""
+    },
+    {
+      "title": "Full-Stack Web Development",
+      "issuer": "Labenu",
+      "date": "09/2021 - 03/2022",
+      "url": ""
+    },
+    {
+      "title": "CS50X - Introduction to Computer Science",
+      "issuer": "Harvard / edX",
+      "date": "11/2023 - 12/2023",
+      "url": ""
+    }
+  ]
+}

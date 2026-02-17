@@ -33,11 +33,11 @@ const Card = ({ project }: PropsProjects) => {
 
   return (
     <div
-      className={`card border rounded-lg overflow-hidden shadow-lg ${cardClasses}`}
+      className={`card border rounded-lg overflow-hidden shadow-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${cardClasses}`}
     >
       {/* <img src={`/img/${project.image}`} alt={project.title} className="w-full h-48 object-cover"/> */}
       <div className="p-6">
-        <h3 className="text-2xl font-bold mb-2">{project.title}</h3>
+        <h3 className="text-2xl font-bold mb-2 tracking-tight">{project.title}</h3>
         <p className={`mb-4 ${descriptionClasses}`}>{project.description}</p>
         <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech, index) => (

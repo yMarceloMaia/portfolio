@@ -14,138 +14,158 @@ const Layout = ({ children }: LayoutProps) => {
   const { pathname } = useLocation();
   const { language, toggleLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const isLight = theme === "light";
+
+  const navItems = [
+    { path: "/home", label: "Home" },
+    { path: "/about", label: "About" },
+    { path: "/contact", label: "Contact" },
+  ];
 
   return (
     <>
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:rounded"
+      >
+        {language === "en" ? "Skip to content" : "Pular para o conteúdo"}
+      </a>
       <InteractiveBackground theme={theme} />
       <main
         className="h-auto min-h-[95vh] w-screen max-w-[1800px] flex justify-center items-center text-theme"
         id="layout"
       >
         <section
-          className={`group h-full layout-main flex flex-col max-h-[85vh] w-[88%] border-gray-200/20 relative rounded-2xl shadow-[0_4px_30px_rgba(0,0,0,0.1)]`}
+          className={`group h-full layout-main flex flex-row max-h-[85vh] w-[88%] relative rounded-2xl ${
+            theme === "dark"
+              ? "border border-white/10 shadow-[0_0_40px_rgba(255,255,255,0.05),0_4px_30px_rgba(0,0,0,0.3)]"
+              : "border border-black/10 shadow-[0_4px_30px_rgba(0,0,0,0.1)]"
+          }`}
         >
-          <div className="absolute top-0 left-0 w-full h-full bg-white/0 backdrop-blur-[9.2px] transition-all duration-500 ease-in-out rounded-2xl"></div>
-          <div className="relative z-10 h-full flex flex-col">
-            <section className="flex flex-col-reverse justify-center md:flex-row md:justify-between md:items-center pb-5">
-              <section
-                className=" flex flex-col justify-center items-start mt-5 ml-10"
-                id="section-title"
-              >
-                <h1
-                  className={`text-5xl font-nixie z-10 text-theme ${
-                    theme === "light" ? "title-light" : ""
-                  }`}
-                  id="title"
-                  data-text="I'm Marcelo Maia"
-                >
-                  I'm Marcelo Maia
-                </h1>
-                <h1
-                  className={`text-3xl font-nixie z-10 mt-5 text-theme ${
-                    theme === "light" ? "title-light" : ""
-                  }`}
-                  id="title"
-                  data-text="full stack developer"
-                >
-                  full stack developer
-                </h1>
-              </section>
+          <div
+            className={`absolute top-0 left-0 w-full h-full backdrop-blur-[9.2px] transition-all duration-500 ease-in-out rounded-2xl ${
+              theme === "dark" ? "bg-white/[0.02]" : "bg-white/0"
+            }`}
+          ></div>
 
-              <div className="opacity-90 z-20 mr-5">
-                <div className="container justify-end">
-                  <div className="radio-wrapper">
-                    <input
-                      className="input"
-                      name="btn"
-                      id="value-1"
-                      checked={pathname == "/home"}
-                      type="radio"
-                      onClick={() => navigate("/home")}
-                    />
-                    <div
-                      className={`btn ${theme === "light" ? "btn-light" : ""}`}
-                    >
-                      <span>_</span>Home
-                      <span className="btn__glitch">Home_</span>
-                    </div>
-                  </div>
-                  <div className="radio-wrapper">
-                    <input
-                      className="input"
-                      name="btn"
-                      id="value-2"
-                      checked={pathname == "/about"}
-                      type="radio"
-                      onClick={() => navigate("/about")}
-                    />
-                    <div
-                      className={`btn ${theme === "light" ? "btn-light" : ""}`}
-                    >
-                      _About<span></span>
-                      <span className="btn__glitch">About_</span>
-                    </div>
-                  </div>
-                  <div className="radio-wrapper">
-                    <input
-                      className="input"
-                      name="btn"
-                      id="value-3"
-                      checked={pathname == "/contact"}
-                      type="radio"
-                      onClick={() => navigate("/contact")}
-                    />
-                    <div
-                      className={`btn ${theme === "light" ? "btn-light" : ""}`}
-                    >
-                      _Contact<span></span>
-                      <span className="btn__glitch">Contact_</span>
-                    </div>
-                  </div>
-                  {/* <div className="radio-wrapper">
-                    <input
-                      className="input"
-                      name="btn"
-                      id="value-3"
-                      checked={pathname == "/projects"}
-                      type="radio"
-                      onClick={() => navigate("/projects")}
-                    />
-                    <div
-                      className={`btn ${theme === "light" ? "btn-light" : ""}`}
-                    >
-                      _Projects<span></span>
-                      <span className="btn__glitch">Projetcts_</span>
-                    </div>
-                  </div> */}
-                  <div className="radio-wrapper">
-                    <button
-                      onClick={toggleLanguage}
-                      className={`btn ${theme === "light" ? "btn-light" : ""}`}
-                    >
-                      {language === "en" ? "PT-BR" : "EN-US"}
-                    </button>
-                  </div>
-                  <div className="radio-wrapper">
-                    <button
-                      onClick={toggleTheme}
-                      className={`btn ${theme === "light" ? "btn-light" : ""}`}
-                    >
-                      {theme === "dark" ? "Light" : "Dark"}
-                    </button>
-                  </div>
-                </div>
-              </div>
+          {/* Sidebar */}
+          <aside
+            className={`relative z-10 flex flex-col justify-between items-center py-8 px-5 w-[170px] shrink-0 border-r ${
+              theme === "dark" ? "border-white/10" : "border-black/10"
+            }`}
+          >
+            {/* Title */}
+            <section className="flex flex-col items-center text-center">
+              <h1
+                className={`text-lg font-nixie z-10 text-theme tracking-tight leading-tight ${
+                  isLight ? "title-light" : ""
+                }`}
+                data-text="Marcelo Maia"
+              >
+                Marcelo Maia
+              </h1>
+              <p
+                className={`text-[10px] font-mono z-10 mt-1.5 tracking-widest uppercase ${
+                  theme === "dark"
+                    ? "text-white/40"
+                    : "text-black/40"
+                }`}
+              >
+                full stack dev
+              </p>
             </section>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="w-full flex-1 overflow-auto z-20 pb-5 flex justify-center items-center"
+            {/* Navigation */}
+            <nav
+              className="z-20 flex flex-col w-full gap-1 mt-8"
+              role="navigation"
+              aria-label={
+                language === "en"
+                  ? "Main navigation"
+                  : "Navegação principal"
+              }
             >
-              {children}
-            </motion.div>
+              {navItems.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => navigate(item.path)}
+                  className={`nav-btn ${isLight ? "nav-btn-light" : ""} ${
+                    pathname === item.path ? "active" : ""
+                  }`}
+                  aria-label={item.label}
+                  aria-current={
+                    pathname === item.path ? "page" : undefined
+                  }
+                >
+                  {item.label}
+                </button>
+              ))}
+            </nav>
+
+            {/* Settings */}
+            <div className="flex flex-col w-full gap-1 mt-auto">
+              <button
+                onClick={toggleLanguage}
+                className={`settings-btn ${
+                  isLight ? "settings-btn-light" : ""
+                }`}
+                aria-label={
+                  language === "en"
+                    ? "Switch to Portuguese"
+                    : "Mudar para Inglês"
+                }
+              >
+                {language === "en" ? "PT-BR" : "EN-US"}
+              </button>
+              <button
+                onClick={toggleTheme}
+                className={`settings-btn ${
+                  isLight ? "settings-btn-light" : ""
+                }`}
+                aria-label={
+                  theme === "dark"
+                    ? language === "en"
+                      ? "Switch to light theme"
+                      : "Mudar para tema claro"
+                    : language === "en"
+                    ? "Switch to dark theme"
+                    : "Mudar para tema escuro"
+                }
+              >
+                {theme === "dark" ? "Light" : "Dark"}
+              </button>
+            </div>
+          </aside>
+
+          {/* Content */}
+          <div className="relative z-10 flex-1 flex flex-col overflow-hidden">
+            <div className="relative w-full flex-1 overflow-hidden">
+              {/* Gradient overlay top */}
+              <div
+                className={`pointer-events-none absolute top-0 left-0 right-0 h-8 z-30 ${
+                  theme === "dark"
+                    ? "bg-gradient-to-b from-black/40 to-transparent"
+                    : "bg-gradient-to-b from-white/40 to-transparent"
+                }`}
+              />
+              {/* Gradient overlay bottom */}
+              <div
+                className={`pointer-events-none absolute bottom-0 left-0 right-0 h-8 z-30 ${
+                  theme === "dark"
+                    ? "bg-gradient-to-t from-black/40 to-transparent"
+                    : "bg-gradient-to-t from-white/40 to-transparent"
+                }`}
+              />
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="w-full h-full overflow-auto pb-5 flex justify-center items-center"
+                id="main-content"
+              >
+                {children}
+              </motion.div>
+            </div>
           </div>
         </section>
       </main>

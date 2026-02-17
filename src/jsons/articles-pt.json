@@ -1,0 +1,18 @@
+{
+  "articles": [
+    {
+      "title": "Começando com React e TypeScript",
+      "description": "Um guia completo para configurar um projeto React moderno com TypeScript.",
+      "url": "",
+      "date": "2024",
+      "tags": ["React", "TypeScript"]
+    },
+    {
+      "title": "Construindo APIs REST com NestJS",
+      "description": "Aprenda como criar APIs escaláveis e manuteníveis usando NestJS.",
+      "url": "",
+      "date": "2024",
+      "tags": ["NestJS", "Node.js", "API"]
+    }
+  ]
+}

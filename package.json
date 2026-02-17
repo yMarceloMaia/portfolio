@@ -19,7 +19,9 @@
     "framer-motion": "^11.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-github-calendar": "^4.5.11",
     "react-glidejs": "^1.0.8",
+    "react-helmet-async": "^2.0.5",
     "react-router-dom": "^6.21.3",
     "simplex-noise": "^4.0.1"
   },

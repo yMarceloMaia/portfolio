@@ -88,236 +88,155 @@
   flex-direction: row;
 }
 
-.radio-wrapper {
+.nav-btn {
   position: relative;
-  height: 38px;
-  width: 84px;
-  margin: 3px;
-}
-
-.radio-wrapper .input {
-  position: absolute;
-  height: 100%;
   width: 100%;
-  margin: 0;
-  cursor: pointer;
-  z-index: 10;
-  opacity: 0;
-}
-
-.btn {
-  --primary: #000000;
-  --shadow-primary: #fdfdfd;
-  --color: white;
-  --font-size: 9px;
-  --shadow-primary-hue: 180;
-  --shadow-secondary-hue: 60;
-  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
-  --clip: polygon(11% 0, 95% 0, 100% 25%, 90% 90%, 95% 90%, 85% 90%, 85% 100%, 7% 100%, 0 80%);
-  --border: 5px;
-  --shimmy-distance: 5;
-  --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
-  --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
-  --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
-  --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-  --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
-  --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
-  --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
-  color: var(--color);
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  font-size: var(--font-size);
-  letter-spacing: 3px;
-  position: relative;
-  font-weight: 900;
-  width: 100%;
-  height: 100%;
-  line-height: 38px;
-  text-align: center;
-  transition: background 0.2s, 0.3s;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
 }
 
-.input:checked+.btn {
-  --primary: #ffffff;
-  --shadow-primary: #f3f3f3;
-  color: black;
+/* Dark theme nav button */
+.nav-btn {
+  color: rgba(255, 255, 255, 0.5);
+  background: transparent;
 }
 
-.input:hover+.btn {
-  --primary: #ffffff;
-  --font-size: 11px;
-  color: rgb(0, 0, 0);
+.nav-btn:hover {
+  color: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.btn:after,
-.btn:before {
+.nav-btn.active {
+  color: rgba(255, 255, 255, 1);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Active indicator line */
+.nav-btn.active::before {
   content: '';
   position: absolute;
-  top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  clip-path: var(--clip);
-  z-index: -1;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 0 2px 2px 0;
 }
 
-.btn:before {
-  background: var(--shadow-primary);
-  transform: translate(var(--border), 0);
+/* Light theme nav button */
+.nav-btn-light {
+  color: rgba(0, 0, 0, 0.45);
+  background: transparent;
 }
 
-.btn:after {
-  background: var(--primary);
+.nav-btn-light:hover {
+  color: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.05);
 }
 
-.btn__tag {
-  position: absolute;
-  padding: 1px 4px;
+.nav-btn-light.active {
+  color: rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.nav-btn-light.active::before {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+/* Settings button (smaller, subtle) */
+.settings-btn {
+  position: relative;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  font-weight: 500;
   letter-spacing: 1px;
-  line-height: 1;
-  bottom: -5%;
-  right: 5%;
-  font-weight: normal;
-  color: hsl(0, 0%, 0%);
-  font-size: var(--label-size);
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.btn__glitch {
-  position: absolute;
-  top: calc(var(--border) * -1);
-  left: calc(var(--border) * -1);
-  right: calc(var(--border) * -1);
-  bottom: calc(var(--border) * -1);
-  background: var(--shadow-primary);
-  text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
-  clip-path: var(--clip);
-  animation: glitch 2s infinite;
-  display: none;
+.settings-btn {
+  color: rgba(255, 255, 255, 0.35);
+  background: transparent;
 }
 
-.input:hover+.btn .btn__glitch {
-  display: block;
+.settings-btn:hover {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.input:checked+.btn .btn__glitch {
-  display: block;
-  animation: glitch 5s infinite;
+.settings-btn-light {
+  color: rgba(0, 0, 0, 0.35);
+  background: transparent;
 }
 
-.btn__glitch:before {
-  content: '';
-  position: absolute;
-  top: calc(var(--border) * 1);
-  right: calc(var(--border) * 1);
-  bottom: calc(var(--border) * 1);
-  left: calc(var(--border) * 1);
-  clip-path: var(--clip);
-  background: var(--primary);
-  z-index: -1;
+.settings-btn-light:hover {
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(0, 0, 0, 0.05);
 }
 
-@keyframes glitch {
-  0% {
-    clip-path: var(--clip-one);
-  }
-
-  2%,
-  8% {
-    clip-path: var(--clip-two);
-    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-  }
-
-  6% {
-    clip-path: var(--clip-two);
-    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-  }
-
-  9% {
-    clip-path: var(--clip-two);
-    transform: translate(0, 0);
-  }
-
-  10% {
-    clip-path: var(--clip-three);
-    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-  }
-
-  13% {
-    clip-path: var(--clip-three);
-    transform: translate(0, 0);
-  }
-
-  14%,
-  21% {
-    clip-path: var(--clip-four);
-    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-  }
-
-  25% {
-    clip-path: var(--clip-five);
-    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-  }
-
-  30% {
-    clip-path: var(--clip-five);
-    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
-  }
-
-  35%,
-  45% {
-    clip-path: var(--clip-six);
-    transform: translate(calc(var(--shimmy-distance) * -1%));
-  }
-
-  40% {
-    clip-path: var(--clip-six);
-    transform: translate(calc(var(--shimmy-distance) * 1%));
-  }
-
-  50% {
-    clip-path: var(--clip-six);
-    transform: translate(0, 0);
-  }
-
-  55% {
-    clip-path: var(--clip-seven);
-    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
-  }
-
-  60% {
-    clip-path: var(--clip-seven);
-    transform: translate(0, 0);
-  }
-
-  31%,
-  61%,
-  100% {
-    clip-path: var(--clip-four);
-  }
+/* CTA buttons (Home page - Contact Me, Download CV) */
+.cta-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 24px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.number {
-  background: var(--shadow-primary);
-  color: #000000;
-  font-size: 5.5px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  position: absolute;
-  width: 15px;
-  height: 6px;
-  top: 0;
-  left: 81%;
-  line-height: 6.2px;
+.cta-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
 }
 
-.btn-light {
-    --primary: #ffffff;
-    --shadow-primary: #000000;
-    --color: black;
+.cta-btn-light {
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.04);
 }
 
-.input:checked+.btn.btn-light {
-  --primary: #000000;
-  color: white;
+.cta-btn-light:hover {
+  color: #000;
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
 }
 
 .icon-light {
